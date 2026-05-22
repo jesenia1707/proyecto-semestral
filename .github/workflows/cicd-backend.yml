@@ -2,9 +2,10 @@ name: CI/CD Backend
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
     paths:
-      - "backend/**"
+      - 'backend/**'
 
 jobs:
   build-push-backend:
@@ -12,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar credenciales AWS
         uses: aws-actions/configure-aws-credentials@v4
