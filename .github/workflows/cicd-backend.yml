@@ -25,6 +25,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Compilar proyecto Spring Boot
+        run: |
+          cd back-Despachos_SpringBoot/Springboot-API-REST-DESPACHO
+          chmod +x mvnw
+          ./mvnw clean package -DskipTests
+
       - name: Construir imagen Docker
         run: |
           docker build -t backend-despacho ./back-Despachos_SpringBoot/Springboot-API-REST-DESPACHO
