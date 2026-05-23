@@ -33,7 +33,8 @@ jobs:
 
       - name: Construir imagen Docker
         run: |
-          docker build -t backend-despacho ./back-Despachos_SpringBoot/Springboot-API-REST-DESPACHO
+          cd back-Despachos_SpringBoot/Springboot-API-REST-DESPACHO
+          docker build -t backend-despacho .
 
       - name: Etiquetar imagen
         run: |
