@@ -1,0 +1,30 @@
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: mysql-despacho
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: despacho
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    image: 624377274514.dkr.ecr.us-east-1.amazonaws.com/backend-despacho:latest
+    container_name: backend-despacho
+    restart: always
+
+    depends_on:
+      - mysql
+
+    ports:
+      - "8081:8081"
+
+volumes:
+  mysql_data:
