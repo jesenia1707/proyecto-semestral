@@ -111,3 +111,5 @@ La automatización CI/CD fue realizada mediante GitHub Actions.
 
 - Jesenia Pardo
 - Bárbara Araya
+
+#terminado 
