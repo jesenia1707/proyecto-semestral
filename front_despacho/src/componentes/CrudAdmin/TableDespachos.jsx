@@ -6,10 +6,12 @@ import { FormCierreDespacho } from "./FormCierreDespacho";
 export const TableDespachos = () => {
   const [despachos, setDespachos] = useState([]);
 
-  // Obtener datos desde json-server
+  // Obtener datos desde backend EC2
   const despacho = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/Ventas");
+      const response = await axios.get(
+        "http://98.92.185.159:8081/api/v1/despachos"
+      );
 
       console.log(response.data);
       setDespachos(response.data);
@@ -76,7 +78,7 @@ export const TableDespachos = () => {
                     </td>
 
                     <td className="pr-10 py-10">
-                      {despacho.entregado
+                      {despacho.despachado
                         ? "Despacho entregado"
                         : "Despacho pendiente"}
                     </td>
